@@ -3,10 +3,20 @@ module gowork1_ihome
 go 1.12
 
 require (
-	github.com/go-log/log v0.1.0
-	github.com/golang/protobuf v1.3.1
+	github.com/astaxie/beego v1.12.0
+	github.com/go-sql-driver/mysql v1.4.1
+	github.com/google/uuid v1.1.1 // indirect
+	github.com/julienschmidt/httprouter v1.3.0 // indirect
+	github.com/kr/pretty v0.1.0 // indirect
+	github.com/micro/cli v0.2.0 // indirect
 	github.com/micro/go-log v0.1.0
-	github.com/micro/go-micro v1.5.0
+	github.com/micro/go-web v1.0.0
+	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644 // indirect
+	golang.org/x/crypto v0.0.0-20190530122614-20be4c3c3ed5 // indirect
+	golang.org/x/net v0.0.0-20190603091049-60506f45cf65 // indirect
+	golang.org/x/text v0.3.2 // indirect
+	google.golang.org/appengine v1.6.0 // indirect
+	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 
 )
 
