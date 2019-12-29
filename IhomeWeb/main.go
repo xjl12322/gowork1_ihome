@@ -1,10 +1,20 @@
 package main
+
 import (
+	"fmt"
 	"github.com/julienschmidt/httprouter"
 	"github.com/micro/go-log"
 	"github.com/micro/go-web"
 	"net/http"
 )
+
+type H struct {
+
+}
+
+func (e *H)te(w http.ResponseWriter,r http.Request)  {
+	fmt.Println("1111111111111111111111111111111111111111111")
+}
 func main()  {
 
 	//创建1个新的web服务
@@ -21,13 +31,14 @@ func main()  {
 		log.Fatal(err)
 	}
 
+	// register call handler
+
 	//使用路由中间件来映射页面
 	rou := httprouter.New()
-	rou.NotFound = http.FileServer(http.Dir("html"))
+	rou.NotFound = http.FileServer(http.Dir("/gowork1_ihome/IhomeWeb/html"))
 
 	// register html handler
 	//映射前端页面
-	//service.Handle("/", http.FileServer(http.Dir("html")))
 	service.Handle("/", rou)
 
 	// run service
