@@ -6,7 +6,7 @@ require (
 	github.com/astaxie/beego v1.12.0
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/google/uuid v1.1.1 // indirect
-	github.com/julienschmidt/httprouter v1.3.0 // indirect
+	github.com/julienschmidt/httprouter v1.3.0
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/micro/cli v0.2.0 // indirect
 	github.com/micro/go-log v0.1.0
