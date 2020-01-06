@@ -1002,7 +1002,7 @@ Enjoy!
 				return;
 			}
 
-			// See if we have any handler for this type of element
+			// See if we have any GetArea for this type of element
 			for (i = 0; i < uniformHandlers.length; i = i + 1) {
 				handler = uniformHandlers[i];
 

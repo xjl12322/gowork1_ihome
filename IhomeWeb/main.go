@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"github.com/julienschmidt/httprouter"
 	"github.com/micro/go-log"
 	"github.com/micro/go-web"
 	"net/http"
+	"gowork1_ihome/IhomeWeb/handler"
 )
 
 type H struct {
@@ -30,16 +32,19 @@ func main()  {
 		log.Fatal(err)
 	}
 
-	// register call handler
+	// register call GetArea
 
 	//使用路由中间件来映射页面
-	//rou := httprouter.New()
-	//rou.NotFound = http.FileServer(http.Dir("D:/golands/ihome/gowork1_ihome/IhomeWeb/html"))
-	rou := http.NotFoundHandler()
-	rou = http.FileServer(http.Dir("D:/golands/ihome/gowork1_ihome/IhomeWeb/html"))
-
-	// register html handler
+	// register html GetArea
 	//映射前端页面
+	rou := httprouter.New()
+	rou.NotFound = http.FileServer(http.Dir("D:/golands/ihome/gowork1_ihome/IhomeWeb/html"))
+	//rou := http.NotFoundHandler()
+	//rou = http.FileServer(http.Dir("D:/golands/ihome/gowork1_ihome/IhomeWeb/html"))
+
+	//获取地区请求
+
+	rou.GET("/api/v1.0/areas",handler.GetArea)
 	service.Handle("/", rou)
 
 	// run service

@@ -11,6 +11,7 @@ var (
 	G_redis_addr   string //redis ip地址
 	G_redis_port   string //redis port端口
 	G_redis_dbnum  string //redis db 编号
+	G_redis_passwd string //redis 密码
 	G_mysql_addr   string //mysql ip 地址
 	G_mysql_port   string //mysql 端口
 	G_mysql_dbname string //mysql db name
@@ -35,7 +36,7 @@ func InitConfig()  {
 	G_redis_addr = appconf.String("redisaddr")
 	G_redis_port = appconf.String("redisport")
 	G_redis_dbnum = appconf.String("redisdbnum")
-
+	G_redis_passwd = appconf.String("redispasswd")
 	G_mysql_addr = appconf.String("mysqladdr")
 	G_mysql_port = appconf.String("mysqlport")
 	G_mysql_dbname = appconf.String("mysqldbname")

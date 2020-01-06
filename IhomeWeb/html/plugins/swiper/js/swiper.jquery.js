@@ -156,7 +156,7 @@
             // Swiping/no swiping
             allowSwipeToPrev: true,
             allowSwipeToNext: true,
-            swipeHandler: null, //'.swipe-handler',
+            swipeHandler: null, //'.swipe-GetArea',
             noSwiping: true,
             noSwipingClass: 'swiper-no-swiping',
             // NS

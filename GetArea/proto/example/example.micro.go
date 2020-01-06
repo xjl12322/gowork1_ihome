@@ -240,6 +240,7 @@ func (h *exampleHandler) PingPong(ctx context.Context, stream server.Stream) err
 	return h.ExampleHandler.PingPong(ctx, &examplePingPongStream{stream})
 }
 
+
 type Example_PingPongStream interface {
 	SendMsg(interface{}) error
 	RecvMsg(interface{}) error

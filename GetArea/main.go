@@ -2,7 +2,10 @@ package main
 
 import (
 	"github.com/micro/go-micro"
-	"github.com/micro/go-web"
+	"gowork1_ihome/GetArea/handler"
+	example"gowork1_ihome/GetArea/proto/example"
+
+
 )
 
 func main()  {
@@ -11,6 +14,14 @@ func main()  {
 		micro.Name("go.micro.srv.GetArea"),
 		micro.Version("latest"),
 	)
+	service.Init()
+
+	example.RegisterExampleHandler(service.Server(),new(handler.Example))
+
+
+
+
+
 
 }
 
