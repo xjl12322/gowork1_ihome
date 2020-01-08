@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/config"
 )
@@ -23,9 +24,8 @@ var (
 func InitConfig()  {
 	//从配置文件读取配置信息
 	//如果项目迁移需要进行修改
-
-	appconf,err := config.NewConfig("ini","E:/goland/gowork/gowork1_ihome/IhomeWeb/conf/app.conf")
-
+	fmt.Println("初始化配置文件")
+	appconf,err := config.NewConfig("ini","D:/golands/ihome/gowork1_ihome/IhomeWeb/conf/app.conf")
 	if err != nil {
 		beego.Debug(err)
 		return

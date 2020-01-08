@@ -1,6 +1,5 @@
 package models
 
-
 import (
 	"fmt"
 	"github.com/astaxie/beego"
@@ -15,6 +14,7 @@ import (
 	//time包关于时间信息
 
 )
+
 /* 用户 table_name = user */
 type User struct {
 	Id            int           `json:"user_id"`                       //用户编号
@@ -203,26 +203,30 @@ func (this *OrderHouse) To_order_info() interface{} {
 
 	return order_info
 }
+
 //数据库的初始化
 func init()  {
+
+
 	fmt.Println("kaishi.....................")
-	//调用什么驱动
+	fmt.Println("root:"+utils.G_mysql_passwd+"@tcp("+utils.G_mysql_addr+":"+utils.G_mysql_port+")/"+utils.G_mysql_dbname+"?charset=utf8")
+//	//调用什么驱动
 	orm.RegisterDriver("mysql",orm.DRMySQL)
-	// set default database
-	//连接数据   ( 默认参数 ，mysql数据库 ，"数据库的用户名 ：数据库密码@tcp("+数据库地址+":"+数据库端口+")/库名？格式",默认参数）
+//	//// set default database
+//	////连接数据   ( 默认参数 ，mysql数据库 ，"数据库的用户名 ：数据库密码@tcp("+数据库地址+":"+数据库端口+")/库名？格式",默认参数）
 	orm.RegisterDataBase("default","mysql","root:"+utils.G_mysql_passwd+"@tcp("+utils.G_mysql_addr+":"+utils.G_mysql_port+")/"+utils.G_mysql_dbname+"?charset=utf8",30)
-
-	//注册model 建表
+//
+//	//注册model 建表
 	orm.RegisterModel(new(User), new(House), new(Area), new(Facility), new(HouseImage), new(OrderHouse))
-	// create table
-	//第一个是别名
-	// 第二个是是否强制替换模块   如果表变更就将false 换成true 之后再换回来表就便更好来了
-	//第三个参数是如果没有则同步或创建
-
-	orm.RunSyncdb("default", false, true)
+//	//// create table
+//	////第一个是别名
+//	//// 第二个是是否强制替换模块   如果表变更就将false 换成true 之后再换回来表就便更好来了
+//	////第三个参数是如果没有则同步或创建
+//	//
+//	//orm.RunSyncdb("default", false, true)
 	fmt.Println("kaishi333333333333333333333333.....................")
 }
-
+//
 
 
 

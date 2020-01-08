@@ -5,8 +5,10 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"github.com/micro/go-log"
 	"github.com/micro/go-web"
-	"net/http"
 	"gowork1_ihome/IhomeWeb/handler"
+	_ "gowork1_ihome/IhomeWeb/models"
+	_ "gowork1_ihome/IhomeWeb/utils"
+	"net/http"
 )
 
 type H struct {
@@ -37,14 +39,23 @@ func main()  {
 	//使用路由中间件来映射页面
 	// register html GetArea
 	//映射前端页面
+
 	rou := httprouter.New()
 	rou.NotFound = http.FileServer(http.Dir("D:/golands/ihome/gowork1_ihome/IhomeWeb/html"))
+
 	//rou := http.NotFoundHandler()
 	//rou = http.FileServer(http.Dir("D:/golands/ihome/gowork1_ihome/IhomeWeb/html"))
 
 	//获取地区请求
-
 	rou.GET("/api/v1.0/areas",handler.GetArea)
+	//获取session
+	rou.GET("/api/v1.0/session",handler.GetSession)
+	//获取首页轮播图
+	rou.GET("/api/v1.0/house/index",handler.GetIndex)
+	//获取验证码图片
+	rou.GET("/api/v1.0/imagecode/:uuid",handler.GetImageCd)
+
+
 	service.Handle("/", rou)
 
 	// run service
