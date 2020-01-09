@@ -3,17 +3,21 @@ package handler
 import (
 	"context"
 	"encoding/json"
+	"github.com/afocus/captcha"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/utils/captcha"
 	"github.com/julienschmidt/httprouter"
 	"github.com/micro/go-micro"
 	GETAREA "gowork1_ihome/GetArea/proto/example"
-	GETIMAGECD"gowork1_ihome/GetImageCd/proto/example"
+	GETIMAGECD "gowork1_ihome/GetImageCd/proto/example"
+	GETSMSCD "gowork1_ihome/GetSmscd/proto/example"
+	GETSESSION"gowork1_ihome/GetSession/proto/example"
+	POSTRET "gowork1_ihome/PostRet/proto/example"
 	"gowork1_ihome/IhomeWeb/models"
-	"image"
-	"net/http"
 	"gowork1_ihome/IhomeWeb/utils"
 
+	"image"
+	"image/png"
+	"net/http"
 )
 
 //获取地区信息
@@ -55,22 +59,54 @@ func GetArea(w http.ResponseWriter, r *http.Request,params httprouter.Params)  {
 	}
 
 }
-
 //获取session信息
 func GetSession(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	beego.Info("获取session信息 GetSession /api/v1.0/session")
-	// we want to augment the response
-	response := map[string]interface{}{
-		"errno":  utils.RECODE_SESSIONERR,
-		"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+	//获取cookie状态  //获取不到返回未登录状态
+	cookie,err := r.Cookie("userlogin")
+	if err != nil{
+		// 直接返回说名用户未登陆
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		//设置返回数据的格式
+		w.Header().Set("Content-Type","application/json")
+		// 将数据回发给前端
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			http.Error(w, err.Error(), 500)
+			return
+		}
 	}
+	//创建服务
+	server :=micro.NewService()
+	server.Init()
+	exampleClient := GETSESSION.NewExampleService("go.micro.srv.GetSession", server.Client())
+	rsp,err := exampleClient.GetSession(context.TODO(), &GETSESSION.Request{Sessionid:cookie.Value})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	data:=make(map[string]string)
+	data["name"] = rsp.UserName
+	response := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+		"data":data,
+	}
+	//设置返回数据的格式
+	w.Header().Set("Content-Type","application/json")
 	// encode and write the response as json
 	if err := json.NewEncoder(w).Encode(response); err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-
 }
+
+
+
+
+
 
 //获取首页轮播图
 func GetIndex(w http.ResponseWriter, r *http.Request, _ httprouter.Params){
@@ -89,14 +125,13 @@ func GetIndex(w http.ResponseWriter, r *http.Request, _ httprouter.Params){
 
 }
 
-
+//获取验证码
 func GetImageCd(w http.ResponseWriter, r *http.Request,ps httprouter.Params) {
 	beego.Info("获取验证码图片 GetImageCd /api/v1.0/imagecode/:uuid")
-
 	//创建服务
 	server:=micro.NewService()
 	server.Init()
-	// 调用服务
+	// 调用服务go.micro.srv.
 	exampleClient := GETIMAGECD.NewExampleService("go.micro.srv.GetImageCd",server.Client())
 
 	//获取uuid
@@ -110,22 +145,118 @@ func GetImageCd(w http.ResponseWriter, r *http.Request,ps httprouter.Params) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
-
 	//接收图片信息的 图片格式
 	var img image.RGBA
-
 	img.Stride = int(rsp.Stride)
 	img.Pix =[]uint8(rsp.Pix)
 	img.Rect.Min.X =int(rsp.Min.X)
 	img.Rect.Min.Y =int(rsp.Min.Y)
 	img.Rect.Max.X =int(rsp.Max.X)
 	img.Rect.Max.Y =int(rsp.Max.Y)
+	var image captcha.Image
+	image.RGBA = &img
 
-
-
+	//将图片发送给浏览器
+	png.Encode(w, image)
 
 
 }
+//发送注册短信
+func GetSmscd(w http.ResponseWriter, r *http.Request,ps httprouter.Params)  {
+	beego.Info("获取短信验证码 GetSmscd api/v1.0/smscode/:mobile ")
+	test := r.URL.Query()["text"][0]
+	id:=r.URL.Query()["id"][0]
+	mobile:=ps.ByName("mobile")
 
+	//创建服务
+	server :=micro.NewService()
+	server.Init()
+	// 调用远程服务句柄
 
+	exampleClient := GETSMSCD.NewExampleService("go.micro.srv.GetSmscd",server.Client())
+	rsp,err := exampleClient.GetSmscd(context.TODO(), &GETSMSCD.Request{
+		Mobile:mobile,
+		Imagestr:test,
+		Uuid:id,
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	// 创建返回数据的map
+	response := map[string]interface{}{
+		"errno": rsp.Error,
+		"errmsg": rsp.Errmsg,
 
+	}
+	//设置返回数据的格式
+	w.Header().Set("Content-Type","application/json")
+	// 发送数据
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+}
+
+//注册接口
+func PostRet(w http.ResponseWriter, r *http.Request,ps httprouter.Params){
+	beego.Info("PostRet  注册 /api/v1.0/users")
+	//服务创建
+	server :=micro.NewService()
+	server.Init()
+	var request map[string]interface{}
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	if request["mobile"].(string) ==""||request["password"].(string)==""||request["sms_code"].(string)=="" {
+		//准备回传数据
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_DATAERR,
+			"errmsg": utils.RecodeText(utils.RECODE_DATAERR),
+		}
+		//设置返回数据的格式
+		w.Header().Set("Content-Type", "application/json")
+		//发送给前端
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
+
+	}
+	// 调用请求
+	exampleClient :=POSTRET.NewExampleService("go.micro.srv.PostRet", server.Client())
+	rsp, err := exampleClient.PostRet(context.TODO(), &POSTRET.Request{
+		Mobile:request["mobile"].(string),
+		Password:request["password"].(string),
+		SmsCode:request["sms_code"].(string),
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	//读取cookie   统一cookie   userlogin
+	//func (r *Request) Cookie(name string) (*Cookie, error)
+	cookie,err :=r.Cookie("userlogin")
+	if err!=nil || ""==cookie.Value{
+		//创建1个cookie对象
+		cookie:= http.Cookie{Name:"userlogin",Value:rsp.SessionId,Path:"/",MaxAge:3600}
+		//对浏览器的cookie进行设置
+		http.SetCookie(w,&cookie)
+	}
+	//准备回传数据
+	response := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+	}
+	//设置返回数据的格式
+	w.Header().Set("Content-Type","application/json")
+	//发送给前端
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+}

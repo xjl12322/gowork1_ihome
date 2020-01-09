@@ -20,6 +20,7 @@ var (
 	G_mysql_passwd string   //mysql数据库密码
 	G_fastdfs_port   string //fastdfs 端口
 	G_fastdfs_addr string //fastdfs ip
+	G_ziti string //字体路径
 )
 func InitConfig()  {
 	//从配置文件读取配置信息
@@ -46,6 +47,7 @@ func InitConfig()  {
 
 	G_fastdfs_port  = appconf.String("fastdfsport")
 	G_fastdfs_addr = appconf.String("fastdfsaddr")
+	G_ziti = appconf.String("ziti")
 	return
 
 

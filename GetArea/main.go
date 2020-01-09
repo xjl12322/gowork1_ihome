@@ -2,8 +2,9 @@ package main
 
 import (
 	"github.com/micro/go-micro"
+
 	"gowork1_ihome/GetArea/handler"
-	example"gowork1_ihome/GetArea/proto/example"
+	example "gowork1_ihome/GetArea/proto/example"
 	"log"
 )
 
@@ -16,7 +17,6 @@ func main()  {
 	service.Init()
 
 	example.RegisterExampleHandler(service.Server(),new(handler.Example))
-
 
 	//micro.RegisterSubscriber("go.micro.srv.GetArea",service.Server(),new(subscriber.Example))
 
