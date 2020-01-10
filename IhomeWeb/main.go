@@ -48,8 +48,8 @@ func main()  {
 
 	//获取地区请求
 	rou.GET("/api/v1.0/areas",handler.GetArea)
-	//获取session
-	rou.GET("/api/v1.0/session",handler.GetSession)
+	////获取session
+	//rou.GET("/api/v1.0/session",handler.GetSession)
 	//获取首页轮播图
 	rou.GET("/api/v1.0/house/index",handler.GetIndex)
 	//获取验证码图片
@@ -63,7 +63,8 @@ func main()  {
 	//登陆
 	rou.POST("/api/v1.0/sessions",handler.PostLogin)
 
-
+	//退出登陆
+	rou.DELETE("/api/v1.0/session",handler.DeleteSession)
 	service.Handle("/", rou)
 
 	// run service

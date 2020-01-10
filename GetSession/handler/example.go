@@ -2,14 +2,13 @@ package handler
 
 import (
 	"context"
+	"encoding/json"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
 	"github.com/garyburd/redigo/redis"
 	_ "github.com/garyburd/redigo/redis"
 	_ "github.com/gomodule/redigo/redis"
-	"encoding/json"
-	"github.com/micro/go-log"
 	"gowork1_ihome/IhomeWeb/utils"
 
 	example "gowork1_ihome/GetSession/proto/example"

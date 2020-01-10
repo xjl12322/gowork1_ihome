@@ -11,6 +11,7 @@ import (
 	GETIMAGECD "gowork1_ihome/GetImageCd/proto/example"
 	GETSESSION "gowork1_ihome/GetSession/proto/example"
 	GETSMSCD "gowork1_ihome/GetSmscd/proto/example"
+    DELETESESSION"gowork1_ihome/DeleteSession/proto/example"
 	"gowork1_ihome/IhomeWeb/models"
 	"gowork1_ihome/IhomeWeb/utils"
 	POSTLOGIN "gowork1_ihome/PostLogin/proto/example"
@@ -316,5 +317,54 @@ func PostRet(w http.ResponseWriter, r *http.Request,ps httprouter.Params){
 		http.Error(w, err.Error(), 500)
 		return
 	}
+
+}
+//退出登陆
+func DeleteSession(w http.ResponseWriter, r *http.Request,ps httprouter.Params)  {
+	beego.Info("DeleteSession  退出登陆 /api/v1.0/session")
+	server:=micro.NewService()
+	server.Init()
+	exampleClient := DELETESESSION.NewExampleService("go.micro.srv.DeleteSession", server.Client())
+	//获取cookie
+	cookie,err:=r.Cookie("userlogin")
+	if err != nil || cookie.Value == "" {
+		//准备回传数据
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_DATAERR,
+			"errmsg": utils.RecodeText(utils.RECODE_DATAERR),
+		}
+		//设置返回数据的格式
+		w.Header().Set("Content-Type", "application/json")
+		//发送给前端
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
+	}
+	rsp, err := exampleClient.DeleteSession(context.TODO(), &DELETESESSION.Request{
+		Sessionid:cookie.Value,
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	cookie,err=r.Cookie("userlogin")
+	if cookie.Value!="" ||err==nil{
+		cookie:=http.Cookie{Name:"userlogin",Path:"/",MaxAge:-1,Value:""}
+		http.SetCookie(w,&cookie)
+	}
+	response := map[string]interface{}{
+		"errno":rsp.Errno,
+		"errmsg":rsp.Errmsg,
+	}
+	//设置返回数据的格式
+	w.Header().Set("Content-Type","application/json")
+	// encode and write the response as json
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
 
 }

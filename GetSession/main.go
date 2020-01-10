@@ -17,7 +17,7 @@ func main() {
 	service.Init()
 
 	// Register Handler
-	//example.RegisterExampleHandler(service.Server(), new(handler.Example))
+	example.RegisterExampleHandler(service.Server(), new(handler.Example))
 
 	// Register Struct as Subscriber
 	//micro.RegisterSubscriber("go.micro.srv.GetSession", service.Server(), new(subscriber.Example))
