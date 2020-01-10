@@ -60,7 +60,8 @@ func main()  {
 	rou.POST("/api/v1.0/users",handler.PostRet)
 	//获取session
 	rou.GET("/api/v1.0/session",handler.GetSession)
-
+	//登陆
+	rou.POST("/api/v1.0/sessions",handler.PostLogin)
 
 
 	service.Handle("/", rou)

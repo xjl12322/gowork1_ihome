@@ -2,17 +2,17 @@ package handler
 
 import (
 	"context"
-	"encoding/json"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
 	"github.com/garyburd/redigo/redis"
 	_ "github.com/garyburd/redigo/redis"
 	_ "github.com/gomodule/redigo/redis"
+	"encoding/json"
 	"github.com/micro/go-log"
 	"gowork1_ihome/IhomeWeb/utils"
-	example "gowork1_ihome/GetSession/proto/example"
 
+	example "gowork1_ihome/GetSession/proto/example"
 )
 type Example struct{}
 
@@ -75,47 +75,3 @@ func (e *Example) GetSession(ctx context.Context, req *example.Request, rsp *exa
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Stream is a server side stream handler called via client.Stream or the generated client code
-func (e *Example) Stream(ctx context.Context, req *example.StreamingRequest, stream example.Example_StreamStream) error {
-	log.Logf("Received Example.Stream request with count: %d", req.Count)
-
-	for i := 0; i < int(req.Count); i++ {
-		log.Logf("Responding: %d", i)
-		if err := stream.Send(&example.StreamingResponse{
-			Count: int64(i),
-		}); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-// PingPong is a bidirectional stream handler called via client.Stream or the generated client code
-func (e *Example) PingPong(ctx context.Context, stream example.Example_PingPongStream) error {
-	for {
-		req, err := stream.Recv()
-		if err != nil {
-			return err
-		}
-		log.Logf("Got ping %v", req.Stroke)
-		if err := stream.Send(&example.Pong{Stroke: req.Stroke}); err != nil {
-			return err
-		}
-	}
-}

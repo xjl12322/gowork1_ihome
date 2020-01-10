@@ -2,6 +2,8 @@ package main
 
 import (
 	"github.com/micro/go-micro"
+	"github.com/micro/go-log"
+	"gowork1_ihome/GetSession/handler"
 	example"gowork1_ihome/GetSession/proto/example"
 )
 func main() {
@@ -15,7 +17,7 @@ func main() {
 	service.Init()
 
 	// Register Handler
-	example.RegisterExampleHandler(service.Server(), new(handler.Example))
+	//example.RegisterExampleHandler(service.Server(), new(handler.Example))
 
 	// Register Struct as Subscriber
 	//micro.RegisterSubscriber("go.micro.srv.GetSession", service.Server(), new(subscriber.Example))
@@ -28,8 +30,6 @@ func main() {
 		log.Fatal(err)
 	}
 }
-
-
 
 
 

@@ -9,12 +9,12 @@ import (
 	"github.com/micro/go-micro"
 	GETAREA "gowork1_ihome/GetArea/proto/example"
 	GETIMAGECD "gowork1_ihome/GetImageCd/proto/example"
+	GETSESSION "gowork1_ihome/GetSession/proto/example"
 	GETSMSCD "gowork1_ihome/GetSmscd/proto/example"
-	GETSESSION"gowork1_ihome/GetSession/proto/example"
-	POSTRET "gowork1_ihome/PostRet/proto/example"
 	"gowork1_ihome/IhomeWeb/models"
 	"gowork1_ihome/IhomeWeb/utils"
-
+	POSTLOGIN "gowork1_ihome/PostLogin/proto/example"
+	POSTRET "gowork1_ihome/PostRet/proto/example"
 	"image"
 	"image/png"
 	"net/http"
@@ -101,12 +101,70 @@ func GetSession(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
+
+
+
 }
 
 
+//登录
+func PostLogin(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	beego.Info("登陆  PostLogin /api/v1.0/sessions")
+	// 接收前端发送过来的json数据进行解码
+	var request map[string]interface{}
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	if request["mobile"].(string) == "" || request["password"].(string) == "" {
+		//准备回传数据
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_DATAERR,
+			"errmsg": utils.RecodeText(utils.RECODE_DATAERR),
+		}
+		//设置返回数据的格式
+		w.Header().Set("Content-Type", "application/json")
+		//发送给前端
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			http.Error(w, err.Error(), 500)
+			return
+		}
 
+		return
 
+	}
 
+	server:=micro.NewService()
+	server.Init()
+	exampleClient := POSTLOGIN.NewExampleService("go.micro.srv.PostLogin",server.Client() )
+	rsp, err := exampleClient.PostLogin(context.TODO(), &POSTLOGIN.Request{
+		Mobile:request["mobile"].(string),
+		Password:request["password"].(string),
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	//设置cookie
+	//Cookie读取
+	cookie,err:=r.Cookie("userlogin")
+	if err!=nil||cookie.Value==""{
+		cookie:=http.Cookie{Name:"userlogin",Value:rsp.Sessionid,Path:"/",MaxAge:600}
+		http.SetCookie(w,&cookie)
+	}
+	// we want to augment the response
+	response := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+	}
+	//设置返回数据的格式
+	w.Header().Set("Content-Type","application/json")
+	// encode and write the response as json
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}
 
 //获取首页轮播图
 func GetIndex(w http.ResponseWriter, r *http.Request, _ httprouter.Params){

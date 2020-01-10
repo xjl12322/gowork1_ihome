@@ -2,7 +2,7 @@
 // source: proto/example/example.proto
 
 /*
-Package go_micro_srv_GetSession is a generated protocol buffer package.
+Package go_micro_srv_PostLogin is a generated protocol buffer package.
 
 It is generated from these files:
 	proto/example/example.proto
@@ -16,18 +16,16 @@ It has these top-level messages:
 	Ping
 	Pong
 */
-package go_micro_srv_GetSession
+package go_micro_srv_PostLogin
+
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 import (
-	"github.com/golang/protobuf/proto"
-)
-import "fmt"
-import "math"
-
-import (
-	"context"
-	"github.com/micro/go-micro/client"
-	"github.com/micro/go-micro/server"
+	client "github.com/micro/go-micro/client"
+	server "github.com/micro/go-micro/server"
+	context "context"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -49,8 +47,8 @@ var _ server.Option
 // Client API for Example service
 
 type ExampleService interface {
-	GetSession(ctx context.Context, in *GetSession.Request, opts ...client.CallOption) (*Response, error)
-	Stream(ctx context.Context, in *GetSession.StreamingRequest, opts ...client.CallOption) (Example_StreamService, error)
+	PostLogin(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
+	Stream(ctx context.Context, in *StreamingRequest, opts ...client.CallOption) (Example_StreamService, error)
 	PingPong(ctx context.Context, opts ...client.CallOption) (Example_PingPongService, error)
 }
 
@@ -64,7 +62,7 @@ func NewExampleService(name string, c client.Client) ExampleService {
 		c = client.NewClient()
 	}
 	if len(name) == 0 {
-		name = "go.micro.srv.GetSession"
+		name = "go.micro.srv.PostLogin"
 	}
 	return &exampleService{
 		c:    c,
@@ -72,9 +70,9 @@ func NewExampleService(name string, c client.Client) ExampleService {
 	}
 }
 
-func (c *exampleService) GetSession(ctx context.Context, in *GetSession.Request, opts ...client.CallOption) (*GetSession.Response, error) {
-	req := c.c.NewRequest(c.name, "Example.GetSession", in)
-	out := new(GetSession.Response)
+func (c *exampleService) PostLogin(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "Example.PostLogin", in)
+	out := new(Response)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -82,8 +80,8 @@ func (c *exampleService) GetSession(ctx context.Context, in *GetSession.Request,
 	return out, nil
 }
 
-func (c *exampleService) Stream(ctx context.Context, in *GetSession.StreamingRequest, opts ...client.CallOption) (Example_StreamService, error) {
-	req := c.c.NewRequest(c.name, "Example.Stream", &GetSession.StreamingRequest{})
+func (c *exampleService) Stream(ctx context.Context, in *StreamingRequest, opts ...client.CallOption) (Example_StreamService, error) {
+	req := c.c.NewRequest(c.name, "Example.Stream", &StreamingRequest{})
 	stream, err := c.c.Stream(ctx, req, opts...)
 	if err != nil {
 		return nil, err
@@ -98,7 +96,7 @@ type Example_StreamService interface {
 	SendMsg(interface{}) error
 	RecvMsg(interface{}) error
 	Close() error
-	Recv() (*GetSession.StreamingResponse, error)
+	Recv() (*StreamingResponse, error)
 }
 
 type exampleServiceStream struct {
@@ -117,8 +115,8 @@ func (x *exampleServiceStream) RecvMsg(m interface{}) error {
 	return x.stream.Recv(m)
 }
 
-func (x *exampleServiceStream) Recv() (*GetSession.StreamingResponse, error) {
-	m := new(GetSession.StreamingResponse)
+func (x *exampleServiceStream) Recv() (*StreamingResponse, error) {
+	m := new(StreamingResponse)
 	err := x.stream.Recv(m)
 	if err != nil {
 		return nil, err
@@ -127,7 +125,7 @@ func (x *exampleServiceStream) Recv() (*GetSession.StreamingResponse, error) {
 }
 
 func (c *exampleService) PingPong(ctx context.Context, opts ...client.CallOption) (Example_PingPongService, error) {
-	req := c.c.NewRequest(c.name, "Example.PingPong", &GetSession.Ping{})
+	req := c.c.NewRequest(c.name, "Example.PingPong", &Ping{})
 	stream, err := c.c.Stream(ctx, req, opts...)
 	if err != nil {
 		return nil, err
@@ -139,8 +137,8 @@ type Example_PingPongService interface {
 	SendMsg(interface{}) error
 	RecvMsg(interface{}) error
 	Close() error
-	Send(*GetSession.Ping) error
-	Recv() (*GetSession.Pong, error)
+	Send(*Ping) error
+	Recv() (*Pong, error)
 }
 
 type exampleServicePingPong struct {
@@ -159,12 +157,12 @@ func (x *exampleServicePingPong) RecvMsg(m interface{}) error {
 	return x.stream.Recv(m)
 }
 
-func (x *exampleServicePingPong) Send(m *GetSession.Ping) error {
+func (x *exampleServicePingPong) Send(m *Ping) error {
 	return x.stream.Send(m)
 }
 
-func (x *exampleServicePingPong) Recv() (*GetSession.Pong, error) {
-	m := new(GetSession.Pong)
+func (x *exampleServicePingPong) Recv() (*Pong, error) {
+	m := new(Pong)
 	err := x.stream.Recv(m)
 	if err != nil {
 		return nil, err
@@ -175,14 +173,14 @@ func (x *exampleServicePingPong) Recv() (*GetSession.Pong, error) {
 // Server API for Example service
 
 type ExampleHandler interface {
-	GetSession(context.Context, *GetSession.Request, *GetSession.Response) error
-	Stream(context.Context, *GetSession.StreamingRequest, Example_StreamStream) error
+	PostLogin(context.Context, *Request, *Response) error
+	Stream(context.Context, *StreamingRequest, Example_StreamStream) error
 	PingPong(context.Context, Example_PingPongStream) error
 }
 
 func RegisterExampleHandler(s server.Server, hdlr ExampleHandler, opts ...server.HandlerOption) error {
 	type example interface {
-		GetSession(ctx context.Context, in *GetSession.Request, out *GetSession.Response) error
+		PostLogin(ctx context.Context, in *Request, out *Response) error
 		Stream(ctx context.Context, stream server.Stream) error
 		PingPong(ctx context.Context, stream server.Stream) error
 	}
@@ -197,12 +195,12 @@ type exampleHandler struct {
 	ExampleHandler
 }
 
-func (h *exampleHandler) GetSession(ctx context.Context, in *GetSession.Request, out *GetSession.Response) error {
-	return h.ExampleHandler.GetSession(ctx, in, out)
+func (h *exampleHandler) PostLogin(ctx context.Context, in *Request, out *Response) error {
+	return h.ExampleHandler.PostLogin(ctx, in, out)
 }
 
 func (h *exampleHandler) Stream(ctx context.Context, stream server.Stream) error {
-	m := new(GetSession.StreamingRequest)
+	m := new(StreamingRequest)
 	if err := stream.Recv(m); err != nil {
 		return err
 	}
@@ -213,7 +211,7 @@ type Example_StreamStream interface {
 	SendMsg(interface{}) error
 	RecvMsg(interface{}) error
 	Close() error
-	Send(*GetSession.StreamingResponse) error
+	Send(*StreamingResponse) error
 }
 
 type exampleStreamStream struct {
@@ -232,7 +230,7 @@ func (x *exampleStreamStream) RecvMsg(m interface{}) error {
 	return x.stream.Recv(m)
 }
 
-func (x *exampleStreamStream) Send(m *GetSession.StreamingResponse) error {
+func (x *exampleStreamStream) Send(m *StreamingResponse) error {
 	return x.stream.Send(m)
 }
 
@@ -244,8 +242,8 @@ type Example_PingPongStream interface {
 	SendMsg(interface{}) error
 	RecvMsg(interface{}) error
 	Close() error
-	Send(*GetSession.Pong) error
-	Recv() (*GetSession.Ping, error)
+	Send(*Pong) error
+	Recv() (*Ping, error)
 }
 
 type examplePingPongStream struct {
@@ -264,12 +262,12 @@ func (x *examplePingPongStream) RecvMsg(m interface{}) error {
 	return x.stream.Recv(m)
 }
 
-func (x *examplePingPongStream) Send(m *GetSession.Pong) error {
+func (x *examplePingPongStream) Send(m *Pong) error {
 	return x.stream.Send(m)
 }
 
-func (x *examplePingPongStream) Recv() (*GetSession.Ping, error) {
-	m := new(GetSession.Ping)
+func (x *examplePingPongStream) Recv() (*Ping, error) {
+	m := new(Ping)
 	if err := x.stream.Recv(m); err != nil {
 		return nil, err
 	}
