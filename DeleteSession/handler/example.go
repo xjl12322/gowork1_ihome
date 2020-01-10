@@ -4,15 +4,14 @@ package handler
 import (
 	"context"
 
-	example "gowork1_ihome/DeleteSession/proto/example"
-	"github.com/astaxie/beego"
-	"gowork1_ihome/IhomeWeb/utils"
 	"encoding/json"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
-	_"github.com/astaxie/beego/cache/redis"
-	_ "github.com/gomodule/redigo/redis"
+	_ "github.com/astaxie/beego/cache/redis"
 	_ "github.com/garyburd/redigo/redis"
-
+	_ "github.com/gomodule/redigo/redis"
+	example "gowork1_ihome/DeleteSession/proto/example"
+	"gowork1_ihome/IhomeWeb/utils"
 )
 
 type Example struct{}
@@ -43,14 +42,23 @@ func (e *Example) DeleteSession(ctx context.Context, req *example.Request, rsp *
 		rsp.Errno= utils.RECODE_DBERR
 		rsp.Errmsg = utils.RecodeText(rsp.Errno)
 	}
+	//获取sessionid
+	sessionid:=req.Sessionid
+
+	/*拼接key  删除session相关字段*/
+	//user_id
+	sessionuser_id := sessionid+"user_id"
+	bm.Delete(sessionuser_id)
+	//name
+	sessionname := sessionid+"name"
+	bm.Delete(sessionname)
+
+	//mobile
+	sessionmobile := sessionid+"mobile"
+	bm.Delete(sessionmobile)
 
 
-
-
-
-
-
-
+	return nil
 
 
 
