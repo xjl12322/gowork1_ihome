@@ -12,6 +12,7 @@ import (
 	GETIMAGECD "gowork1_ihome/GetImageCd/proto/example"
 	GETSESSION "gowork1_ihome/GetSession/proto/example"
 	GETSMSCD "gowork1_ihome/GetSmscd/proto/example"
+	GETUSERINFO		"gowork1_ihome/GetUserInfo/proto/example"
 	"gowork1_ihome/IhomeWeb/models"
 	"gowork1_ihome/IhomeWeb/utils"
 	POSTLOGIN "gowork1_ihome/PostLogin/proto/example"
@@ -368,3 +369,65 @@ func DeleteSession(w http.ResponseWriter, r *http.Request,ps httprouter.Params) 
 
 
 }
+
+func GetUserInfo(w http.ResponseWriter,r *http.Request,_ httprouter.Params)  {
+	beego.Info("GetUserInfo  获取用户信息   /api/v1.0/user")
+	service :=micro.NewService()
+	service.Init()
+
+	userlogin,err := r.Cookie("userlogin")
+	//判断是否成功不成功就直接返回
+	if err != nil {
+		resp := map[string]interface{}{
+			"errno":utils.RECODE_SESSIONERR,
+			"errmsg":utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		//if err := json.NewEncoder(w).Encode()
+		err = json.NewEncoder(w).Encode(resp)
+		http.Error(w, err.Error(), 503)
+		beego.Info(err)
+		return
+	}
+	//创建句柄
+	exampleClient := GETUSERINFO.NewExampleService("go.micro.srv.GetUserInfo",service.Client())
+	//成功就将信息发送给前端
+	rsp,err := exampleClient.GetUserInfo(context.TODO(),&GETUSERINFO.Request{
+		Sessionid:userlogin.Value,
+
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 502)
+		beego.Info(err)
+		//beego.Debug(err)
+		return
+	}
+	// 准备1个数据的map 接受返回的值
+	data := make(map[string]interface{})
+	data["user_id"] = rsp.UserId
+	data["name"] = rsp.Name
+	data["mobile"] = rsp.Mobile
+	data["real_name"] = rsp.RealName
+	data["id_card"] = rsp.IdCard
+	data["avatar_url"] = utils.AddDomain2Url(rsp.AvatarUrl)
+
+	resp := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+		"data" : data,
+	}
+	//设置格式
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(resp); err != nil {
+		http.Error(w, err.Error(), 503)
+		beego.Info(err)
+		return
+	}
+
+
+}
+
+
+
+
+
