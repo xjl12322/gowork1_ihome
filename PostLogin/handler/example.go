@@ -70,13 +70,13 @@ func (e *Example) PostLogin(ctx context.Context, req *example.Request, rsp *exam
 	/*拼接key*/
 	//user_id
 	sessionuser_id := sessionid+"user_id"
-	bm.Put(sessionuser_id,user.Id,time.Second*600)
+	bm.Put(sessionuser_id,user.Id,time.Second*1000)
 	//name
 	sessionname := sessionid+"name"
-	bm.Put(sessionname,user.Name,time.Second*600)
+	bm.Put(sessionname,user.Name,time.Second*1000)
 	//mobile
 	sessionmobile := sessionid+"mobile"
-	bm.Put(sessionmobile,user.Mobile,time.Second*600)
+	bm.Put(sessionmobile,user.Mobile,time.Second*1000)
 	return nil
 }
 

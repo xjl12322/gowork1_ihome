@@ -12,13 +12,15 @@ import (
 	GETIMAGECD "gowork1_ihome/GetImageCd/proto/example"
 	GETSESSION "gowork1_ihome/GetSession/proto/example"
 	GETSMSCD "gowork1_ihome/GetSmscd/proto/example"
-	GETUSERINFO		"gowork1_ihome/GetUserInfo/proto/example"
+	GETUSERINFO "gowork1_ihome/GetUserInfo/proto/example"
+	POSTAVATAR"gowork1_ihome/PostAvatar/proto/example"
 	"gowork1_ihome/IhomeWeb/models"
 	"gowork1_ihome/IhomeWeb/utils"
 	POSTLOGIN "gowork1_ihome/PostLogin/proto/example"
 	POSTRET "gowork1_ihome/PostRet/proto/example"
 	"image"
 	"image/png"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -369,7 +371,7 @@ func DeleteSession(w http.ResponseWriter, r *http.Request,ps httprouter.Params) 
 
 
 }
-
+//获取用户信息
 func GetUserInfo(w http.ResponseWriter,r *http.Request,_ httprouter.Params)  {
 	beego.Info("GetUserInfo  获取用户信息   /api/v1.0/user")
 	service :=micro.NewService()
@@ -426,8 +428,192 @@ func GetUserInfo(w http.ResponseWriter,r *http.Request,_ httprouter.Params)  {
 
 
 }
+////上传用户头像 PostAvatar
+//func PostAvatar(w http.ResponseWriter,r *http.Request,_ httprouter.Params)  {
+//	beego.Info("上传用户头像 PostAvatar /api/v1.0/user/avatar")
+//	//创建服务
+//	service := micro.NewService()
+//	service.Init()
+//	//创建句柄
+//	exampleClient := POSTAVATAR.NewExampleService("go.micro.srv.PostAvatar", service.Client())
+//
+//	//查看登陆信息
+//	userlogin,err:=r.Cookie("userlogin")
+//	if err !=nil{
+//		resp := map[string]interface{}{
+//			"errno":utils.RECODE_SESSIONERR,
+//			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+//		}
+//		w.Header().Set("Content-Type", "application/json")
+//		if err := json.NewEncoder(w).Encode(resp); err != nil{
+//			http.Error(w,err.Error(),503)
+//
+//		}
+//		return
+//	}
+//	//接收前端发送过来的文集
+//	file,hander,err := r.FormFile("avatar")
+//	//判断是否接受成功
+//	if err != nil{
+//		beego.Info("Postupavatar   c.GetFile(avatar) err" ,err)
+//		resp := map[string]interface{}{
+//			"errno": utils.RECODE_IOERR,
+//			"errmsg": utils.RecodeText(utils.RECODE_IOERR),
+//		}
+//		w.Header().Set("Content-Type", "application/json")
+//		if err := json.NewEncoder(w).Encode(resp); err != nil {
+//			http.Error(w, err.Error(), 503)
+//			beego.Info(err)
+//		}
+//		return
+//	}
+//	//打印基本信息
+//	beego.Info(file ,hander)
+//	beego.Info("文件大小",hander.Size)
+//	beego.Info("文件名",hander.Filename)
+//	filebuffer := make([]byte,hander.Size)
+//	//将文件读取到filebuffer里
+//	_,err = file.Read(filebuffer)
+//	if err != nil{
+//		beego.Info("Postupavatar   file.Read(filebuffer) err" ,err)
+//		resp := map[string]interface{}{
+//			"errno": utils.RECODE_IOERR,
+//			"errmsg": utils.RecodeText(utils.RECODE_IOERR),
+//		}
+//		w.Header().Set("Content-Type", "application/json")
+//		if err := json.NewEncoder(w).Encode(resp); err != nil {
+//			http.Error(w, err.Error(), 503)
+//			beego.Info(err)
+//
+//		}
+//		return
+//	}
+//	//调用远程函数传入数据
+//	rsp,err := exampleClient.PostAvatar(context.TODO(),&POSTAVATAR.Request{
+//		Sessionid:userlogin.Value,
+//		Filename:hander.Filename,
+//		Filesize:hander.Size,
+//		Avatar:filebuffer,
+//	})
+//	if err != nil{
+//		http.Error(w, err.Error(), 502)
+//		beego.Info(err)
+//		return
+//	}
+//	//准备回传数据空间
+//	data := make(map[string]interface{})
+//	//url拼接然回回传数据
+//	data["avatar_url"]=utils.AddDomain2Url(rsp.AvatarUrl)
+//	resp := map[string]interface{}{
+//		"errno": rsp.Errno,
+//		"errmsg": rsp.Errmsg,
+//		"data":data,
+//	}
+//	w.Header().Set("Content-Type", "application/json")
+//	// encode and write the response as json
+//	if err := json.NewEncoder(w).Encode(resp); err != nil {
+//		http.Error(w, err.Error(), 503)
+//		beego.Info(err)
+//		return
+//	}
+//
+//	return
+//}
 
 
 
+
+
+//上传用户头像 PostAvatar
+func PostAvatar(w http.ResponseWriter,r *http.Request,_ httprouter.Params)  {
+	beego.Info("上传用户头像 PostAvatar /api/v1.0/user/avatar")
+	//创建服务
+	service := micro.NewService()
+	service.Init()
+	//创建句柄
+	exampleClient := POSTAVATAR.NewExampleService("go.micro.srv.PostAvatar", service.Client())
+
+	//查看登陆信息
+	userlogin,err:=r.Cookie("userlogin")
+	if err !=nil{
+		resp := map[string]interface{}{
+			"errno":utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(resp); err != nil{
+			http.Error(w,err.Error(),503)
+
+		}
+		return
+	}
+	//接收前端发送过来的文集
+	file,hander,err := r.FormFile("avatar")
+	//判断是否接受成功
+	if err != nil{
+		beego.Info("Postupavatar   c.GetFile(avatar) err" ,err)
+		resp := map[string]interface{}{
+			"errno": utils.RECODE_IOERR,
+			"errmsg": utils.RecodeText(utils.RECODE_IOERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), 503)
+			beego.Info(err)
+		}
+		return
+	}
+	//打印基本信息
+	beego.Info(file ,hander)
+	beego.Info("文件大小",hander.Size)
+	beego.Info("文件名",hander.Filename)
+	filebuffer := make([]byte,hander.Size)
+	//将文件读取到filebuffer里
+	_,err = file.Read(filebuffer)
+	if err != nil{
+		beego.Info("Postupavatar   file.Read(filebuffer) err" ,err)
+		resp := map[string]interface{}{
+			"errno": utils.RECODE_IOERR,
+			"errmsg": utils.RecodeText(utils.RECODE_IOERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), 503)
+			beego.Info(err)
+
+		}
+		return
+	}
+	//调用远程函数传入数据
+	rsp,err := exampleClient.PostAvatar(context.TODO(),&POSTAVATAR.Request{
+		Sessionid:userlogin.Value,
+		Filename:hander.Filename,
+		Filesize:hander.Size,
+		Avatar:filebuffer,
+	})
+	if err != nil{
+		http.Error(w, err.Error(), 502)
+		beego.Info(err)
+		return
+	}
+	//准备回传数据空间
+	data := make(map[string]interface{})
+	//url拼接然回回传数据
+	data["avatar_url"]=utils.AddDomain2Url(rsp.AvatarUrl)
+	resp := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+		"data":data,
+	}
+	w.Header().Set("Content-Type", "application/json")
+	// encode and write the response as json
+	if err := json.NewEncoder(w).Encode(resp); err != nil {
+		http.Error(w, err.Error(), 503)
+		beego.Info(err)
+		return
+	}
+
+	return
+}
 
 
