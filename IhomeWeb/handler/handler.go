@@ -3,6 +3,7 @@ package handler
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"github.com/afocus/captcha"
 	"github.com/astaxie/beego"
 	"github.com/julienschmidt/httprouter"
@@ -13,14 +14,16 @@ import (
 	GETSESSION "gowork1_ihome/GetSession/proto/example"
 	GETSMSCD "gowork1_ihome/GetSmscd/proto/example"
 	GETUSERINFO "gowork1_ihome/GetUserInfo/proto/example"
-	POSTAVATAR"gowork1_ihome/PostAvatar/proto/example"
+	GETUSERHOUSES "gowork1_ihome/GetUserHouses/proto/example"
 	"gowork1_ihome/IhomeWeb/models"
 	"gowork1_ihome/IhomeWeb/utils"
+	POSTAVATAR "gowork1_ihome/PostAvatar/proto/example"
 	POSTLOGIN "gowork1_ihome/PostLogin/proto/example"
 	POSTRET "gowork1_ihome/PostRet/proto/example"
+	POSTUSERAUTH "gowork1_ihome/PostUserAuth/proto/example"
+	PUTUSERINFO "gowork1_ihome/PutUserInfo/proto/example"
 	"image"
 	"image/png"
-	"io/ioutil"
 	"net/http"
 )
 
@@ -131,7 +134,7 @@ func PostLogin(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		//发送给前端
 		if err := json.NewEncoder(w).Encode(response); err != nil {
 			http.Error(w, err.Error(), 500)
-			return
+
 		}
 
 		return
@@ -570,6 +573,7 @@ func PostAvatar(w http.ResponseWriter,r *http.Request,_ httprouter.Params)  {
 	filebuffer := make([]byte,hander.Size)
 	//将文件读取到filebuffer里
 	_,err = file.Read(filebuffer)
+	//ioutil.ReadFile
 	if err != nil{
 		beego.Info("Postupavatar   file.Read(filebuffer) err" ,err)
 		resp := map[string]interface{}{
@@ -615,5 +619,220 @@ func PostAvatar(w http.ResponseWriter,r *http.Request,_ httprouter.Params)  {
 
 	return
 }
+
+//更新用户名//PutUserInfo
+func PutUserInfo(w http.ResponseWriter,r *http.Request,_ httprouter.Params){
+	beego.Info(" 更新用户名 Putuserinfo /api/v1.0/user/name")
+	service := micro.NewService()
+	service.Init()
+	// 接收前端发送内容
+
+	var request map[string]interface{}
+	if err := json.NewDecoder(r.Body).Decode(&request);err != nil{
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	// 调用服务
+	exampleClient := PUTUSERINFO.NewExampleService("go.micro.srv.PutUserInfo", service.Client())
+	//获取用户登陆信息
+	userlogin,err := r.Cookie("userlogin")
+	if err != nil {
+		resp := map[string]interface{}{
+			"errno": utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), 503)
+			beego.Info(err)
+			return
+		}
+		return
+	}
+	rsp,err := exampleClient.PutUserInfo(context.TODO(),&PUTUSERINFO.Request{
+		Sessionid:userlogin.Value,
+		Username:request["name"].(string),
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	//接收回发数据
+	data := make(map[string]interface{})
+	data["name"]=rsp.Username
+	response := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+		"data":data,
+	}
+	w.Header().Set("Content-Type", "application/json")
+	// 返回前端
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 501)
+		return
+	}
+}
+//实名认证检查
+func GetUserAuth(w http.ResponseWriter,r *http.Request,_ httprouter.Params) {
+	beego.Info("GetUserInfo  获取用户信息   /api/v1.0/user")
+	service := micro.NewService()
+	service.Init()
+	exampleClient := GETUSERINFO.NewExampleService("go.micro.srv.GetUserInfo", service.Client())
+	//获取用户的登陆信息
+	userlogin, err := r.Cookie("userlogin")
+	//判断是否成功不成功就直接返回
+	if err != nil {
+		resp := map[string]interface{}{
+			"errno":  utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		// encode and write the response as json
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), 503)
+			beego.Info(err)
+			return
+		}
+		return
+
+	}
+	//成功就将信息发送给前端
+	rsp, err := exampleClient.GetUserInfo(context.TODO(),&GETUSERINFO.Request{
+		Sessionid:userlogin.Value,
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 502)
+
+		beego.Info(err)
+		//beego.Debug(err)
+		return
+	}
+
+	// 准备1个数据的map 接受返回的值
+	data := make(map[string]interface{})
+	data["user_id"] = rsp.UserId
+	data["name"] = rsp.Name
+	data["mobile"] = rsp.Mobile
+	data["real_name"] = rsp.RealName
+	data["id_card"] = rsp.IdCard
+	data["avatar_url"] = utils.AddDomain2Url(rsp.AvatarUrl)
+
+	resp := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+		"data" : data,
+	}
+	//设置格式
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(resp); err != nil {
+		http.Error(w, err.Error(), 503)
+		beego.Info(err)
+		return
+	}
+	return
+}
+//实名认证  PostUserAuth
+func PostUserAuth(w http.ResponseWriter, r *http.Request,_ httprouter.Params){
+	beego.Info(" 实名认证 Postuserauth  api/v1.0/user/auth ")
+
+	//获取前端发送的数据
+	var request map[string]interface{}
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	service := micro.NewService()
+	service.Init()
+	exampleClient := POSTUSERAUTH.NewExampleService("go.micro.srv.PostUserAuth", service.Client())
+	//获取cookie
+	userlogin,err:=r.Cookie("userlogin")
+	if err != nil{
+		resp := map[string]interface{}{
+			"errno": utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		// encode and write the response as json
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), 503)
+			beego.Info(err)
+			return
+		}
+		return
+	}
+	rsp, err := exampleClient.PostUserAuth(context.TODO(), &POSTUSERAUTH.Request{
+		Sessionid:userlogin.Value,
+		RealName:request["real_name"].(string),
+		IdCard:request["id_card"].(string),
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	response := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+	}
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 501)
+		return
+	}
+
+
+
+
+}
+
+
+
+// 获取当前用户所发布的房源 GetUserHouses
+func GetUserHouses(w http.ResponseWriter, r *http.Request,_ httprouter.Params){
+	beego.Info("获取当前用户所发布的房源 GetUserHouses /api/v1.0/user/houses")
+	server :=micro.NewService()
+	server.Init()
+	// call the backend service
+	exampleClient := GETUSERHOUSES.NewExampleService("go.micro.srv.GetUserHouses",  server.Client())
+	//获取cookie
+	userlogin,err:=r.Cookie("userlogin")
+	if err != nil{
+		resp := map[string]interface{}{
+			"errno": utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		// encode and write the response as json
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), 503)
+			beego.Info(err)
+			return
+		}
+		return
+	}
+
+	rsp, err := exampleClient.GetUserHouses(context.TODO(), &GETUSERHOUSES.Request{
+		Sessionid:userlogin.Value,
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	house_list := []models.House{}
+
+	json.Unmarshal(rsp.Mix,&house_list)
+	var houses []interface{}
+	for _, houseinfo := range house_list {
+		fmt.Printf("house.user = %+v\n", houseinfo.Id)
+		fmt.Printf("house.area = %+v\n", houseinfo.Area)
+		houses = append(houses, houseinfo.To_house_info())
+	}
+
+
+
+}
+
+
 
 

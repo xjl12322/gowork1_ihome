@@ -37,7 +37,7 @@ func (e *Example) GetUserInfo(ctx context.Context,req *example.Request, rsp *exa
 	beego.Info(redis_conf)
 	//将map进行转化成为json
 	redis_config,_ :=json.Marshal(redis_conf)
-	//3792d84071ad061b945315a92d8520b8
+	//3792d84071ad061b945315a92d8520b8.jpg
 	//3792d84071ad061b945315a92d8520b8user_id
 	//连接redis数据库 创建句柄
 	bm, err := cache.NewCache("redis", string(redis_config))

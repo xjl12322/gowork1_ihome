@@ -4,11 +4,9 @@
     <list default="true" id="4d416783-c3cf-4813-b74a-eba25b97a267" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GetUserInfo/handler/example.go" beforeDir="false" afterPath="$PROJECT_DIR$/GetUserInfo/handler/example.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GetUserInfo/mian.go" beforeDir="false" afterPath="$PROJECT_DIR$/GetUserInfo/mian.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IhomeWeb/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/IhomeWeb/conf/app.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IhomeWeb/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/IhomeWeb/handler/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IhomeWeb/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/IhomeWeb/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostLogin/handler/example.go" beforeDir="false" afterPath="$PROJECT_DIR$/PostLogin/handler/example.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,110 +20,119 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IhomeWeb/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="75" column="46" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+              <folding>
+                <element signature="e#14#239#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IhomeWeb/handler/handler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="550" column="29" selection-start-line="550" selection-start-column="29" selection-end-line="550" selection-end-column="29" />
+            <state relative-caret-position="189">
+              <caret line="815" column="6" lean-forward="true" selection-start-line="815" selection-start-column="6" selection-end-line="815" selection-end-column="6" />
               <folding>
-                <element signature="e#17#720#0" expanded="true" />
-                <element signature="n#!!block;n#GetArea#0" />
-                <element signature="n#!!block;n#GetSession#0" />
-                <element signature="n#!!block;n#PostLogin#0" />
-                <element signature="n#!!block;n#GetIndex#0" />
-                <element signature="n#!!block;n#GetImageCd#0" />
-                <element signature="n#!!block;n#GetSmscd#0" />
-                <element signature="n#!!block;n#PostRet#0" />
-                <element signature="n#!!block;n#DeleteSession#0" />
-                <element signature="n#!!block;n#GetUserInfo#0" />
-                <element signature="e#11201#11222#0" />
+                <element signature="e#17#875#0" expanded="true" />
+                <element signature="e#898#1729#0" />
+                <element signature="e#1821#2990#0" />
+                <element signature="e#3074#4596#0" />
+                <element signature="e#4682#5056#0" />
+                <element signature="e#5143#5866#0" />
+                <element signature="e#5952#6722#0" />
+                <element signature="e#6804#8435#0" />
+                <element signature="e#8524#9786#0" />
+                <element signature="e#9873#11253#0" />
+                <element signature="e#11304#11325#0" />
+                <element signature="e#13935#16255#0" />
+                <element signature="e#16353#17802#0" />
+                <element signature="e#17742#18164#0" />
+                <element signature="e#19256#19258#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Go/src/encoding/json/decode.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GetHouses/proto/example/example.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GetUserHouses/proto/example/example.pb.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://D:/Go/src/net/http/request.go">
+        <entry file="file://$PROJECT_DIR$/GetUserHouses/proto/example/example.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GetUserHouses/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="e#14#216#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GetUserHouses/handler/example.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="319">
-              <caret line="1358" column="9" lean-forward="true" selection-start-line="1358" selection-start-column="9" selection-end-line="1358" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/Go/src/io/ioutil/ioutil.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="51" column="37" lean-forward="true" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IhomeWeb/utils/error.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IhomeWeb/models/models.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-132">
-              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PostAvatar/conf/app.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PostAvatar/handler/example.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="80" column="19" lean-forward="true" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+              <caret line="47" column="19" lean-forward="true" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
               <folding>
-                <element signature="e#16#451#0" expanded="true" />
+                <element signature="e#16#357#0" expanded="true" />
+                <element signature="n#!!block;n#Stream#0" />
+                <element signature="n#!!block;n#PingPong#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IhomeWeb/utils/misc.go">
+        <entry file="file://D:/Go/src/encoding/json/encode.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
-              <folding>
-                <element signature="e#15#55#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="200">
+              <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IhomeWeb/utils/config.go">
+        <entry file="file://$PROJECT_DIR$/PutUserInfo/handler/example.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="57" column="1" lean-forward="true" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IhomeWeb/conf/app.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="391">
+              <caret line="51" column="46" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="51" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -150,6 +157,8 @@
       <find>*GetSession.</find>
       <find>user-info fr</find>
       <find>RECODE_DBERR</find>
+      <find>G_server_addr</find>
+      <find>G_mysql_username</find>
     </findStrings>
     <replaceStrings>
       <replace>*</replace>
@@ -202,19 +211,27 @@
         <option value="$PROJECT_DIR$/GetUserInfo/mian.go" />
         <option value="$PROJECT_DIR$/PostLogin/handler/example.go" />
         <option value="$PROJECT_DIR$/GetUserInfo/handler/example.go" />
-        <option value="$PROJECT_DIR$/IhomeWeb/main.go" />
         <option value="$PROJECT_DIR$/PostAvatar/main.go" />
-        <option value="$PROJECT_DIR$/IhomeWeb/conf/app.conf" />
         <option value="$PROJECT_DIR$/PostAvatar/handler/example.go" />
+        <option value="$PROJECT_DIR$/PutUserInfo/main.go" />
+        <option value="$PROJECT_DIR$/IhomeWeb/conf/app.conf" />
+        <option value="$PROJECT_DIR$/PutUserInfo/handler/example.go" />
+        <option value="$PROJECT_DIR$/GetUserAuth/main.go" />
+        <option value="$PROJECT_DIR$/PostUserAuth/handler/example.go" />
+        <option value="$PROJECT_DIR$/PostUserAuth/main.go" />
+        <option value="$PROJECT_DIR$/IhomeWeb/main.go" />
+        <option value="$PROJECT_DIR$/GetHouses/main.go" />
+        <option value="$PROJECT_DIR$/GetUserHouses/main.go" />
         <option value="$PROJECT_DIR$/IhomeWeb/handler/handler.go" />
+        <option value="$PROJECT_DIR$/GetUserHouses/handler/example.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="657" />
-    <option name="y" value="99" />
-    <option name="width" value="1211" />
-    <option name="height" value="852" />
+    <option name="x" value="10" />
+    <option name="y" value="75" />
+    <option name="width" value="1314" />
+    <option name="height" value="863" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -222,13 +239,59 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
               <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetHouses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetHouses" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetHouses" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetUserHouses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetUserHouses" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetUserHouses" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetUserHouses" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="GetUserInfo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
@@ -267,19 +330,54 @@
             <path>
               <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
               <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
-              <item name="PostAvatar" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="PostLogin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
               <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
-              <item name="PostAvatar" type="462c0819:PsiDirectoryNode" />
+              <item name="PostLogin" type="462c0819:PsiDirectoryNode" />
               <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="PostRet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="PostRet" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="PutUserInfo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="PutUserInfo" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="PutUserInfo" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gowork1_ihome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gowork1_ihome" type="462c0819:PsiDirectoryNode" />
+              <item name="PutUserInfo" type="462c0819:PsiDirectoryNode" />
+              <item name="proto" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,21 +387,22 @@
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/PostAvatar/conf" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GetUserHouses" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\golands\ihome\gowork1_ihome\PostAvatar\conf" />
-      <recent name="D:\golands\ihome\gowork1_ihome\IhomeWeb\html\user" />
-      <recent name="D:\golands\ihome\gowork1_ihome\PostAvatar" />
-      <recent name="D:\golands\ihome\gowork1_ihome\GetUserInfo\handler" />
-      <recent name="D:\golands\ihome\gowork1_ihome\GetUserInfo\proto" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\golands\ihome\gowork1_ihome\GetHouses" />
       <recent name="D:\golands\ihome\gowork1_ihome\GetSession" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\golands\ihome\gowork1_ihome\GetUserHouses" />
+      <recent name="D:\golands\ihome\gowork1_ihome\GetHouses" />
+      <recent name="D:\golands\ihome\gowork1_ihome\PostUserAuth" />
+      <recent name="D:\golands\ihome\gowork1_ihome\PutUserInfo" />
+      <recent name="D:\golands\ihome\gowork1_ihome\PostAvatar\conf" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -318,12 +417,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go (3)">
+  <component name="RunManager" selected="Go Build.go build main.go (5)">
     <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gowork1_ihome" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/PostLogin/main.go" />
+      <filePath value="$PROJECT_DIR$/IhomeWeb/main.go" />
       <package value="gowork1_ihome" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
@@ -332,7 +431,7 @@
       <module name="gowork1_ihome" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/PostAvatar/main.go" />
+      <filePath value="$PROJECT_DIR$/PostRet/main.go" />
       <package value="gowork1_ihome" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
@@ -341,7 +440,7 @@
       <module name="gowork1_ihome" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/PostRet/main.go" />
+      <filePath value="$PROJECT_DIR$/PutUserInfo/main.go" />
       <package value="gowork1_ihome" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
@@ -350,39 +449,40 @@
       <module name="gowork1_ihome" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/GetSmscd/main.go" />
+      <filePath value="$PROJECT_DIR$/PostLogin/main.go" />
       <package value="gowork1_ihome" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="go build mian.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build main.go (5)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="gowork1_ihome" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/GetUserInfo/mian.go" />
+      <filePath value="$PROJECT_DIR$/PostUserAuth/main.go" />
       <package value="gowork1_ihome" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go (3)" />
+        <item itemvalue="Go Build.go build main.go (5)" />
         <item itemvalue="Go Build.go build main.go (1)" />
+        <item itemvalue="Go Build.go build main.go (3)" />
         <item itemvalue="Go Build.go build main.go (2)" />
-        <item itemvalue="Go Build.go build mian.go" />
         <item itemvalue="Go Build.go build main.go (4)" />
       </list>
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="657" y="99" width="1211" height="852" extended-state="0" />
+    <frame x="10" y="75" width="1314" height="863" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49817517" visible="true" weight="0.25543007" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49817517" visible="true" weight="0.23444976" />
       <window_info id="Structure" order="1" sideWeight="0.50224215" side_tool="true" weight="0.23070674" />
       <window_info id="Favorites" order="2" sideWeight="0.5018248" side_tool="true" weight="0.23070674" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959382" visible="true" weight="0.15561959" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32853025" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959382" visible="true" weight="0.1106383" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3982684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -420,254 +520,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/IhomeWeb/handler/handler.go</url>
-          <line>27</line>
+          <line>30</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/IhomeWeb/handler/handler.go</url>
-          <line>193</line>
+          <line>196</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/IhomeWeb/handler/handler.go</url>
-          <line>232</line>
+          <line>235</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/IhomeWeb/handler/handler.go</url>
-          <line>230</line>
+          <line>233</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/IhomeWeb/handler/handler.go</url>
-          <line>66</line>
+          <line>69</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DeleteSession/proto/example/example.pb.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeleteSession/subscriber/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#20#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetArea/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-467">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!block;n#Stream#0" />
-            <element signature="n#!!block;n#PingPong#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetImageCd/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="44" selection-start-line="44" selection-end-line="54" />
-          <folding>
-            <element signature="e#17#396#0" expanded="true" />
-            <element signature="n#!!block;n#Stream#0" />
-            <element signature="n#!!block;n#PingPong#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeleteSession/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#14#181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IhomeWeb/html/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="9710" column="4" selection-start-line="9710" selection-start-column="4" selection-end-line="9710" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test1.js" />
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/julienschmidt/httprouter@v1.3.0/router.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1554">
-          <caret line="101" column="23" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
-          <folding>
-            <element signature="e#2955#2999#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetSmscd/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="49" selection-start-line="49" selection-end-line="57" selection-end-column="46" />
-          <folding>
-            <element signature="e#17#475#0" expanded="true" />
-            <element signature="n#!!block;n#Stream#0" />
-            <element signature="n#!!block;n#PingPong#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/micro/go-web@v1.0.0/service.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="250" selection-start-line="250" selection-end-line="250" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetSmscd/proto/example/example.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetSmscd/proto/example/example.micro.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="126" selection-start-line="126" selection-end-line="133" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetUserInfo/proto/example/example.pb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetUserInfo/proto/example/example.micro.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetUserInfo/proto/example/example.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="51" column="14" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeleteSession/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
-          <folding>
-            <element signature="e#18#322#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetUserInfo/mian.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#14#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/go/pkg/mod/github.com/astaxie/beego@v1.12.0/cache/cache.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Go/src/builtin/builtin.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Go/src/strconv/atoi.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="217" column="5" selection-start-line="217" selection-start-column="5" selection-end-line="217" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostRet/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="80" column="23" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!block;n#Stream#0" />
-            <element signature="n#!!block;n#PingPong#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostRet/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Go/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="2017" column="45" selection-start-line="2017" selection-start-column="45" selection-end-line="2017" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PostLogin/proto/example/example.proto">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/PostLogin/proto/example/example.pb.go">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostLogin/proto/example/example.micro.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetUserInfo/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
-          <folding>
-            <element signature="e#17#405#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Go/src/io/io.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7920">
-          <caret line="362" column="17" selection-start-line="362" selection-start-column="17" selection-end-line="362" selection-end-column="17" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PostAvatar/proto/example/example.pb.go">
       <provider selected="true" editor-type-id="text-editor">
@@ -682,43 +566,6 @@
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostAvatar/proto/example/example.micro.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostLogin/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostLogin/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostAvatar/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IhomeWeb/html/user/home01.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IhomeWeb/html/user/3792d84071ad061b945315a92d8520b8.jpg">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/IhomeWeb/html/js/ihome/profile.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -737,16 +584,6 @@
     <entry file="file://$PROJECT_DIR$/IhomeWeb/conf/data.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/IhomeWeb/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding>
-            <element signature="e#14#239#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IhomeWeb/utils/misc.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -757,10 +594,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IhomeWeb/conf/app.conf">
+    <entry file="file://$PROJECT_DIR$/PostAvatar/conf/app.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="66">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Go/src/net/http/request.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="1350" column="45" selection-start-line="1350" selection-start-column="45" selection-end-line="1350" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Go/src/io/ioutil/ioutil.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostAvatar/proto/example/example.micro.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IhomeWeb/html/user/home01.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IhomeWeb/html/user/3792d84071ad061b945315a92d8520b8.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://D:/Go/src/io/io.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PutUserInfo/proto/example/example.pb.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PutUserInfo/proto/example/example.micro.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="168" column="5" lean-forward="true" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostRet/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#14#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostAvatar/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="42" selection-start-line="42" selection-end-line="56" selection-end-column="5" />
+          <folding>
+            <element signature="e#16#451#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetUserInfo/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+          <folding>
+            <element signature="e#17#405#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostAvatar/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostLogin/proto/example/example.micro.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="180" column="5" selection-start-line="180" selection-start-column="5" selection-end-line="180" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -771,68 +696,239 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IhomeWeb/utils/config.go">
+    <entry file="file://$PROJECT_DIR$/IhomeWeb/html/my.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="57" column="1" lean-forward="true" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostAvatar/conf/app.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PostAvatar/handler/example.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="80" column="19" lean-forward="true" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
-          <folding>
-            <element signature="e#16#451#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="396">
+          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IhomeWeb/models/models.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="330">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Go/src/io/ioutil/ioutil.go">
+    <entry file="file://$PROJECT_DIR$/IhomeWeb/utils/config.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="51" column="37" lean-forward="true" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+        <state relative-caret-position="858">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetSession/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="25" selection-start-line="25" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PutUserInfo/proto/example/example.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IhomeWeb/conf/app.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostLogin/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostUserAuth/proto/example/example.pb.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostUserAuth/proto/example/example.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostLogin/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="53" selection-start-line="53" selection-end-line="68" selection-end-column="5" />
+          <folding>
+            <element signature="e#17#416#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostRet/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1519">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!block;n#Stream#0" />
+            <element signature="n#!!block;n#PingPong#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostUserAuth/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#22#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetHouses/proto/example/example.pb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetHouses/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding>
+            <element signature="e#14#204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetHouses/proto/example/example.micro.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PutUserInfo/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostUserAuth/proto/example/example.micro.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1848" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostUserAuth/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1142">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+          <folding>
+            <element signature="e#17#38#0" expanded="true" />
+            <element signature="n#!!block;n#Stream#0" />
+            <element signature="n#!!block;n#PingPong#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetUserHouses/proto/example/example.pb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Go/src/encoding/json/decode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetUserHouses/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#14#216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PutUserInfo/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="51" column="46" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="51" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetHouses/proto/example/example.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Go/src/encoding/json/encode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="157" column="5" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetUserHouses/handler/example.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="47" column="19" lean-forward="true" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+          <folding>
+            <element signature="e#16#357#0" expanded="true" />
+            <element signature="n#!!block;n#Stream#0" />
+            <element signature="n#!!block;n#PingPong#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IhomeWeb/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="75" column="46" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+          <folding>
+            <element signature="e#14#239#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IhomeWeb/handler/handler.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="550" column="29" selection-start-line="550" selection-start-column="29" selection-end-line="550" selection-end-column="29" />
+        <state relative-caret-position="189">
+          <caret line="815" column="6" lean-forward="true" selection-start-line="815" selection-start-column="6" selection-end-line="815" selection-end-column="6" />
           <folding>
-            <element signature="e#17#720#0" expanded="true" />
-            <element signature="n#!!block;n#GetArea#0" />
-            <element signature="n#!!block;n#GetSession#0" />
-            <element signature="n#!!block;n#PostLogin#0" />
-            <element signature="n#!!block;n#GetIndex#0" />
-            <element signature="n#!!block;n#GetImageCd#0" />
-            <element signature="n#!!block;n#GetSmscd#0" />
-            <element signature="n#!!block;n#PostRet#0" />
-            <element signature="n#!!block;n#DeleteSession#0" />
-            <element signature="n#!!block;n#GetUserInfo#0" />
-            <element signature="e#11201#11222#0" />
+            <element signature="e#17#875#0" expanded="true" />
+            <element signature="e#898#1729#0" />
+            <element signature="e#1821#2990#0" />
+            <element signature="e#3074#4596#0" />
+            <element signature="e#4682#5056#0" />
+            <element signature="e#5143#5866#0" />
+            <element signature="e#5952#6722#0" />
+            <element signature="e#6804#8435#0" />
+            <element signature="e#8524#9786#0" />
+            <element signature="e#9873#11253#0" />
+            <element signature="e#11304#11325#0" />
+            <element signature="e#13935#16255#0" />
+            <element signature="e#16353#17802#0" />
+            <element signature="e#17742#18164#0" />
+            <element signature="e#19256#19258#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Go/src/net/http/request.go">
+    <entry file="file://$PROJECT_DIR$/GetUserHouses/proto/example/example.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="1358" column="9" lean-forward="true" selection-start-line="1358" selection-start-column="9" selection-end-line="1358" selection-end-column="9" />
+        <state relative-caret-position="264">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
         </state>
       </provider>
     </entry>
