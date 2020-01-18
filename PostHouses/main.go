@@ -1,10 +1,11 @@
-package mian
+package main
 
 import (
 	"github.com/micro/go-log"
 	"github.com/micro/go-micro"
 	"gowork1_ihome/PostHouses/handler"
 	example "gowork1_ihome/PostHouses/proto/example"
+
 
 )
 func main() {
@@ -19,8 +20,6 @@ func main() {
 
 	// Register Handler
 	example.RegisterExampleHandler(service.Server(), new(handler.Example))
-
-
 
 	// Run service
 	if err := service.Run(); err != nil {

@@ -3,18 +3,18 @@ package handler
 
 import (
 	"context"
-	"github.com/micro/go-log"
-	example "gowork1_ihome/PostHouses/proto/example"
-	"github.com/astaxie/beego"
-	"gowork1_ihome/ihomeweb/utils"
 	"encoding/json"
-	"gowork1_ihome/ihomeweb/models"
-	"strconv"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
-	_ "github.com/gomodule/redigo/redis"
-	"reflect"
 	"github.com/astaxie/beego/orm"
+	_ "github.com/gomodule/redigo/redis"
+	"github.com/micro/go-log"
+	"gowork1_ihome/IhomeWeb/models"
+	"gowork1_ihome/IhomeWeb/utils"
+	example "gowork1_ihome/PostHouses/proto/example"
+	"reflect"
+	"strconv"
 )
 
 
@@ -127,9 +127,36 @@ func (e *Example) PostHouses(ctx context.Context, req *example.Request, rsp *exa
 
 
 
+// PingPong is a bidirectional stream handler called via client.Stream or the generated client code
+func (e *Example) PingPong(ctx context.Context, stream example.Example_PingPongStream) error {
+	for {
+		req, err := stream.Recv()
+		if err != nil {
+			return err
+		}
+		log.Logf("Got ping %v", req.Stroke)
+		if err := stream.Send(&example.Pong{Stroke: req.Stroke}); err != nil {
+			return err
+		}
+	}
+}
 
 
+// Stream is a server side stream handler called via client.Stream or the generated client code
+func (e *Example) Stream(ctx context.Context, req *example.StreamingRequest, stream example.Example_StreamStream) error {
+	log.Logf("Received Example.Stream request with count: %d", req.Count)
 
+	for i := 0; i < int(req.Count); i++ {
+		log.Logf("Responding: %d", i)
+		if err := stream.Send(&example.StreamingResponse{
+			Count: int64(i),
+		}); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
 
 
 

@@ -9,7 +9,6 @@ import (
 	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
 	_ "github.com/gomodule/redigo/redis"
-	"reflect"
 	"gowork1_ihome/IhomeWeb/models"
 	"github.com/astaxie/beego/orm"
 	"strconv"
