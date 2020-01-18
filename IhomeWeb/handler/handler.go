@@ -15,6 +15,7 @@ import (
 	GETSMSCD "gowork1_ihome/GetSmscd/proto/example"
 	GETUSERINFO "gowork1_ihome/GetUserInfo/proto/example"
 	GETUSERHOUSES "gowork1_ihome/GetUserHouses/proto/example"
+	POSTHOUSES "gowork1_ihome/PostHouses/proto/example"
 	"gowork1_ihome/IhomeWeb/models"
 	"gowork1_ihome/IhomeWeb/utils"
 	POSTAVATAR "gowork1_ihome/PostAvatar/proto/example"
@@ -24,6 +25,7 @@ import (
 	PUTUSERINFO "gowork1_ihome/PutUserInfo/proto/example"
 	"image"
 	"image/png"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -832,6 +834,80 @@ func GetUserHouses(w http.ResponseWriter, r *http.Request,_ httprouter.Params){
 
 
 }
+
+
+
+//发布房源信息
+func PostHouses(w http.ResponseWriter, r *http.Request,_ httprouter.Params){
+	beego.Info("PostHouses 发布房源信息 /api/v1.0/houses ")
+	//获取前端post请求发送的内容
+	body,_ := ioutil.ReadAll(r.Body)
+	//获取cookie
+	userlogin,err:=r.Cookie("userlogin")
+	if err != nil{
+		resp := map[string]interface{}{
+			"errno": utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		//设置回传格式
+		w.Header().Set("Content-Type", "application/json")
+		// encode and write the response as json
+		if err := json.NewEncoder(w).Encode(resp); err != nil {
+			http.Error(w, err.Error(), 503)
+			beego.Info(err)
+			return
+		}
+		return
+	}
+	service := micro.NewService()
+	service.Init()
+	exampleClient :=POSTHOUSES.NewExampleService("go.micro.srv.PostHouses",service.Client())
+	rsp, err := exampleClient.PostHouses(context.TODO(),&POSTHOUSES.Request{
+		Sessionid:userlogin.Value,
+		Max:body,
+	})
+	if err != nil {
+		http.Error(w, err.Error(), 502)
+		return
+	}
+	/*得到插入房源信息表的 id*/
+	houseid_map :=make(map[string]interface{})
+	houseid_map["house_id"] = int(rsp.House_Id)
+	resp := map[string]interface{}{
+		"errno": rsp.Errno,
+		"errmsg": rsp.Errmsg,
+		"data":houseid_map,
+
+	}
+	w.Header().Set("Content-Type", "application/json")
+
+	// encode and write the response as json
+	if err := json.NewEncoder(w).Encode(resp); err != nil {
+		http.Error(w, err.Error(), 503)
+		beego.Info(err)
+		return
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
