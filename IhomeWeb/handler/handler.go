@@ -841,6 +841,7 @@ func GetUserHouses(w http.ResponseWriter, r *http.Request,_ httprouter.Params){
 func PostHouses(w http.ResponseWriter, r *http.Request,_ httprouter.Params){
 	beego.Info("PostHouses 发布房源信息 /api/v1.0/houses ")
 	//获取前端post请求发送的内容
+	s := r.Body
 	body,_ := ioutil.ReadAll(r.Body)
 	//获取cookie
 	userlogin,err:=r.Cookie("userlogin")
